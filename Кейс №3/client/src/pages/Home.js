@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import TaskForm from '../components/TaskForm';
 import TaskList from '../components/TaskList';
+import { Col, Container, Row } from 'react-bootstrap';
 
 const Home = () => {
   const [tasks, setTasks] = useState([]);
@@ -19,11 +20,15 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Task Manager</h1>
-      <TaskForm />
-      <TaskList tasks={tasks} setTasks={setTasks} />
-    </div>
+    <Container>
+      <Row className="justify-content-center">
+        <Col md={6}>
+          <h1>Задачи</h1>
+          <TaskForm />
+          <TaskList tasks={tasks} setTasks={setTasks} />
+        </Col>
+      </Row>
+    </Container>
   );
 };
 

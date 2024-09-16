@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const userRoutes = require('./routes/userRoutes');
 const taskRoutes = require('./routes/taskRoutes');
+const verifyRoutes = require('./routes/verify');
 require('dotenv').config();
 
 const app = express();
@@ -19,6 +20,7 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
 // Роуты
 app.use('/api/users', userRoutes);
 app.use('/api/tasks', taskRoutes);
+app.use('/api/auth', verifyRoutes);
 
 // Запуск сервера
 const port = process.env.PORT || 5000;

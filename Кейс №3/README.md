@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Кейс #3 Разработка веб-приложения для управления задачами
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 
 const Register = () => {
   const [username, setUsername] = useState('');
@@ -18,14 +19,31 @@ const Register = () => {
   };
 
   return (
-    <div>
-      <h2>Register</h2>
-      <form onSubmit={handleSubmit}>
-        <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Username" required />
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" required />
-        <button type="submit">Register</button>
-      </form>
-    </div>
+    <Container>
+      <Row className="justify-content-center">
+        <Col md={6}>
+          <h2>Зарегистрироваться</h2>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group controlId="formLogin">
+              <Form.Label>Логин</Form.Label>
+              <Form.Control type="text" placeholder="Введите логин" value={username} onChange={(e) => setUsername(e.target.value)} />
+            </Form.Group>
+            <Form.Group controlId="formPassword" className='mb-4'>
+              <Form.Label>Пароль</Form.Label>
+              <Form.Control type="password" placeholder="Введите пароль" value={password} onChange={(e) => setPassword(e.target.value)} />
+            </Form.Group>
+            <Button variant="primary" type="submit">
+              Зарегистрироваться
+            </Button>
+            <Link to="/login">
+              <Button variant="primary" >
+                Войти
+              </Button>
+            </Link>
+          </Form>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 
