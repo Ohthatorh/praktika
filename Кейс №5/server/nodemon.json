@@ -1,0 +1,6 @@
+{
+  "watch": ["server"],
+  "ext": "js",
+  "ignore": ["server/public/"],
+  "exec": "node --experimental-specifier-resolution=node server/index.js"
+}
